@@ -1,6 +1,3 @@
 #!/usr/bin/execlineb -P
 with-contenv
-/run.sh
-
-
-
+exec /app/run.sh
