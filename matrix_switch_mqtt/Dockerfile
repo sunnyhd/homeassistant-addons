@@ -1,5 +1,4 @@
-ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM homeassistant/amd64-base:latest
 
 # Set environment variables
 ENV LANG C.UTF-8
@@ -38,8 +37,7 @@ COPY mqtt_state_monitor.py /srv/
 # Set permissions
 RUN chmod a+x /run.sh
 
-# Set the entrypoint to s6-svscan
-ENTRYPOINT [ "/init" ]
-
 # s6 overlay service directory
 COPY ./services.d /etc/services.d
+
+ENTRYPOINT [ "/init" ]
