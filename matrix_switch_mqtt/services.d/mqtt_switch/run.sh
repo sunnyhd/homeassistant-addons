@@ -1,5 +1,6 @@
-#!/usr/bin/with-contenv bashio
+#!/usr/bin/execlineb -P
+with-contenv
+/run.sh
 
-exec /run.sh
 
 

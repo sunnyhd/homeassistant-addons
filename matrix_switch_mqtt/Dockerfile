@@ -1,19 +1,16 @@
-FROM homeassistant/amd64-base:latest
+ARG BUILD_FROM=homeassistant/amd64-base:latest
+FROM $BUILD_FROM
 
 # Set environment variables
 ENV LANG C.UTF-8
-ENV S6_OVERLAY_VERSION v2.2.0.3
 ENV PATH="/srv/venv/bin:$PATH"
-
-# Install s6-overlay
-ADD https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/s6-overlay-amd64.tar.gz /tmp/
-RUN tar -xzf /tmp/s6-overlay-amd64.tar.gz -C /
 
 # Install required packages
 WORKDIR /srv
 RUN apk add --no-cache \
     python3 \
     py3-pip \
+    py3-yaml \
     build-base \
     linux-headers \
     libffi-dev \
@@ -40,3 +37,4 @@ RUN chmod a+x /run.sh
 COPY ./services.d /etc/services.d
 
 ENTRYPOINT [ "/init" ]
+
