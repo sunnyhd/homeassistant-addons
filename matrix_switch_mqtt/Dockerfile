@@ -8,8 +8,7 @@ ENV LANG C.UTF-8
 RUN apk add --no-cache \
     python3 \
     py3-pip \
-    gcc \
-    musl-dev \
+    build-base \
     linux-headers
 
 # Install Python packages
