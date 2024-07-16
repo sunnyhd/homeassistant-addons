@@ -34,4 +34,4 @@ COPY mqtt_state_monitor.py /srv/
 RUN chmod a+x /run.sh
 
 # Set the entrypoint
-CMD [ "/run.sh" ]
+ENTRYPOINT [ "/run.sh" ]
