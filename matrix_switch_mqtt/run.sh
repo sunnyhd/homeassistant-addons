@@ -20,3 +20,4 @@ source /srv/venv/bin/activate
 
 # Start the Python script
 python /srv/mqtt_state_monitor.py
+

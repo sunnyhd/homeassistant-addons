@@ -3,7 +3,13 @@ FROM $BUILD_FROM
 
 # Set environment variables
 ENV LANG C.UTF-8
+ENV S6_OVERLAY_VERSION v3.1.0.1
 ENV PATH="/srv/venv/bin:$PATH"
+
+# Install s6-overlay
+ADD https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/s6-overlay-amd64.tar.gz /tmp/
+RUN tar -xzf /tmp/s6-overlay-amd64.tar.gz -C / && \
+    tar -xzf /tmp/s6-overlay-amd64.tar.gz -C /usr ./bin
 
 # Install required packages
 WORKDIR /srv
@@ -33,5 +39,8 @@ COPY mqtt_state_monitor.py /srv/
 # Set permissions
 RUN chmod a+x /run.sh
 
-# Set the entrypoint
-ENTRYPOINT [ "/run.sh" ]
+# Set the entrypoint to s6-svscan
+ENTRYPOINT [ "/init" ]
+
+# s6 overlay service directory
+COPY ./services.d /etc/services.d
