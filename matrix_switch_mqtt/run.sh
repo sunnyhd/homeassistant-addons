@@ -18,5 +18,5 @@ export LOG_LEVEL=$(bashio::config 'log_level')
 # Activate the virtual environment
 source /srv/venv/bin/activate
 
-# Start the Python script
-python /srv/mqtt_state_monitor.py
+# Start the Python script and log output
+python /srv/mqtt_state_monitor.py > /config/matrix_switch_mqtt.log 2>&1
