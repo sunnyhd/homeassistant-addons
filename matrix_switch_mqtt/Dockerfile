@@ -1,17 +1,20 @@
-ARG BUILD_FROM
+ARG BUILD_FROM=hassioaddons/base:8.0.6
 FROM $BUILD_FROM
 
 # Set environment variables
 ENV LANG C.UTF-8
 
 # Install required packages
-RUN apk add --no-cache \
+RUN apk update && apk add --no-cache \
     python3 \
     py3-pip \
     build-base \
     linux-headers \
     libffi-dev \
-    openssl-dev
+    openssl-dev \
+    gcc \
+    musl-dev \
+    python3-dev
 
 # Log Python and pip versions
 RUN python3 --version && pip3 --version
