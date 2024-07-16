@@ -5,7 +5,7 @@ FROM $BUILD_FROM
 ENV LANG C.UTF-8
 ENV PATH="/srv/venv/bin:$PATH"
 
-# Install python3, pip, and build tools
+# Install required packages
 WORKDIR /srv
 RUN apk add --no-cache \
     python3 \
@@ -28,7 +28,6 @@ RUN /srv/venv/bin/pip install --no-cache-dir paho-mqtt pyserial
 # Copy data for add-on
 WORKDIR /
 COPY run.sh /
-COPY rootfs /
 COPY mqtt_state_monitor.py /srv/
 
 # Set permissions
@@ -36,4 +35,3 @@ RUN chmod a+x /run.sh
 
 # Set the entrypoint
 CMD [ "/run.sh" ]
-
