@@ -9,10 +9,15 @@ RUN apk add --no-cache \
     python3 \
     py3-pip \
     build-base \
-    linux-headers
+    linux-headers \
+    libffi-dev \
+    openssl-dev
 
-# Install Python packages
-RUN pip3 install --no-cache-dir paho-mqtt pyserial
+# Log Python and pip versions
+RUN python3 --version && pip3 --version
+
+# Install Python packages with detailed logging
+RUN pip3 install --no-cache-dir paho-mqtt pyserial --verbose
 
 # Copy data
 COPY run.sh /
