@@ -15,5 +15,9 @@ export MQTT_TOPIC_PREFIX=$(bashio::config 'mqtt_topic_prefix')
 export MQTT_DISCOVERY_PREFIX=$(bashio::config 'mqtt_discovery_prefix')
 export LOG_LEVEL=$(bashio::config 'log_level')
 
+# Activate the virtual environment
+source /srv/venv/bin/activate
+
 # Start the Python script
-python3 /usr/src/app/mqtt_state_monitor.py
+python /srv/mqtt_state_monitor.py
+
