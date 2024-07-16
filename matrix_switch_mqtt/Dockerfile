@@ -3,7 +3,7 @@ FROM $BUILD_FROM
 
 # Set environment variables
 ENV LANG C.UTF-8
-ENV S6_OVERLAY_VERSION=v2.2.0.3.0
+ENV S6_OVERLAY_VERSION v2.2.0.3
 ENV PATH="/srv/venv/bin:$PATH"
 
 # Install s6-overlay
@@ -45,4 +45,3 @@ EXPOSE 8099
 
 # Set the entrypoint to s6-svscan
 ENTRYPOINT [ "/init" ]
-
