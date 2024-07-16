@@ -18,5 +18,20 @@ export LOG_LEVEL=$(bashio::config 'log_level')
 # Activate the virtual environment
 source /srv/venv/bin/activate
 
+# Debugging information
+echo "MQTT_BROKER=${MQTT_BROKER}"
+echo "MQTT_PORT=${MQTT_PORT}"
+echo "MQTT_USERNAME=${MQTT_USERNAME}"
+echo "MQTT_PASSWORD=${MQTT_PASSWORD}"
+echo "MQTT_USE_SSL=${MQTT_USE_SSL}"
+echo "MQTT_CA_CERT=${MQTT_CA_CERT}"
+echo "MQTT_CLIENT_CERT=${MQTT_CLIENT_CERT}"
+echo "MQTT_CLIENT_KEY=${MQTT_CLIENT_KEY}"
+echo "SERIAL_PORT=${SERIAL_PORT}"
+echo "BAUDRATE=${BAUDRATE}"
+echo "MQTT_TOPIC_PREFIX=${MQTT_TOPIC_PREFIX}"
+echo "MQTT_DISCOVERY_PREFIX=${MQTT_DISCOVERY_PREFIX}"
+echo "LOG_LEVEL=${LOG_LEVEL}"
+
 # Start the Python script and log output
 python /app/mqtt_state_monitor.py > /config/matrix_switch_mqtt.log 2>&1
