@@ -9,12 +9,16 @@
   "options": {
     "mqtt_broker": "mqtt_broker_address",
     "mqtt_port": 1883,
+    "mqtt_username": "yourusername",
+    "mqtt_password": "yourpassword",
     "mqtt_topic": "homeassistant/test",
     "message": "Hello from Home Assistant add-on"
   },
   "schema": {
     "mqtt_broker": "str",
     "mqtt_port": "int",
+    "mqtt_username": "str",
+    "mqtt_password": "str",
     "mqtt_topic": "str",
     "message": "str"
   },
@@ -23,3 +27,4 @@
     "context": "."
   }
 }
+
