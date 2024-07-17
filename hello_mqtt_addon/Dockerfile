@@ -5,9 +5,7 @@ FROM $BUILD_FROM
 ENV LANG C.UTF-8
 
 # Install necessary dependencies
-RUN apk add --no-cache \
-    python3 \
-    py3-pip
+RUN apk add --no-cache python3 py3-pip
 
 # Upgrade pip and install required Python packages
 RUN pip3 install --upgrade pip
