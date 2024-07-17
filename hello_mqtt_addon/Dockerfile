@@ -7,14 +7,11 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Install necessary dependencies
 RUN apk add --no-cache python3 py3-pip build-base git libffi-dev python3-dev
 
-# Upgrade pip
-RUN python3 -m pip install --no-cache-dir --upgrade pip
-
 # Copy Python requirements file
 COPY requirements.txt /tmp/
 
 # Install Python packages
-RUN pip install --no-cache-dir -r /tmp/requirements.txt
+RUN pip3 install --no-cache-dir -r /tmp/requirements.txt
 
 # Copy application files
 WORKDIR /app
@@ -25,4 +22,5 @@ RUN chmod +x /app/run.sh
 
 # Set the entrypoint
 ENTRYPOINT ["/app/run.sh"]
+
 
