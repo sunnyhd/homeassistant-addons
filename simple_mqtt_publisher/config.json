@@ -7,10 +7,10 @@
   "startup": "services",
   "boot": "auto",
   "options": {
-    "mqtt_broker": "core-mosquitto",  // Use the service name of the Mosquitto broker add-on
+    "mqtt_broker": "core-mosquitto",
     "mqtt_port": 1883,
-    "mqtt_username": "yourusername",  // Set this according to your Mosquitto configuration
-    "mqtt_password": "yourpassword",  // Set this according to your Mosquitto configuration
+    "mqtt_username": "yourusername",
+    "mqtt_password": "yourpassword",
     "mqtt_topic": "homeassistant/test",
     "message": "Hello from Home Assistant add-on"
   },
