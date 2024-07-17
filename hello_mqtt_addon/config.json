@@ -1,16 +1,16 @@
 {
-  "name": "Simple MQTT Publisher",
+  "name": "Hello MQTT Add-on",
   "version": "1.0",
-  "slug": "simple_mqtt_publisher",
-  "description": "Publishes a message to an MQTT broker",
+  "slug": "hello_mqtt_addon",
+  "description": "A Hello World add-on for Home Assistant with MQTT functionality",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "services",
   "boot": "auto",
   "options": {
-    "mqtt_broker": "core-mosquitto",
+    "mqtt_broker": "localhost",
     "mqtt_port": 1883,
-    "mqtt_username": "yourusername",
-    "mqtt_password": "yourpassword",
+    "mqtt_username": "",
+    "mqtt_password": "",
     "mqtt_topic": "homeassistant/test",
     "message": "Hello from Home Assistant add-on"
   },
