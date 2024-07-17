@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Load configuration from options
-MQTT_BROKER=${MQTT_BROKER:-"mqtt_broker_address"}
+MQTT_BROKER=${MQTT_BROKER:-"core-mosquitto"}
 MQTT_PORT=${MQTT_PORT:-1883}
 MQTT_USERNAME=${MQTT_USERNAME:-""}
 MQTT_PASSWORD=${MQTT_PASSWORD:-""}
@@ -18,6 +18,3 @@ export MESSAGE
 
 # Start the Python script
 python /app/mqtt_publisher.py
-
-
-
