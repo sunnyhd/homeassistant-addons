@@ -1,0 +1,20 @@
+{
+  "name": "Simple Example Add-on",
+  "version": "1.0",
+  "slug": "simple_example_addon",
+  "description": "A simple example add-on for Home Assistant",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "services",
+  "boot": "auto",
+  "options": {
+    "message": "Hello from Home Assistant add-on"
+  },
+  "schema": {
+    "message": "str"
+  },
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  }
+}
+
