@@ -4,7 +4,7 @@ import paho.mqtt.client as mqtt
 
 # Load environment variables and set default values if not provided
 MQTT_BROKER = os.getenv('MQTT_BROKER', 'core-mosquitto')
-MQTT_PORT = int(os.getenv('MQTT_PORT', '1883'))  # Ensure default is a string
+MQTT_PORT = int(os.getenv('MQTT_PORT', '1883'))
 MQTT_USERNAME = os.getenv('MQTT_USERNAME', '')
 MQTT_PASSWORD = os.getenv('MQTT_PASSWORD', '')
 MQTT_TOPIC = os.getenv('MQTT_TOPIC', 'homeassistant/test')
