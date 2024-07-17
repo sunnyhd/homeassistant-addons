@@ -18,3 +18,4 @@ export MESSAGE
 
 # Start the Python script
 python3 /app/hello_mqtt.py
+
