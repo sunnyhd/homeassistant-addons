@@ -1,17 +1,8 @@
-FROM python:3.9-alpine
+ARG BUILD_FROM
+FROM $BUILD_FROM
 
-# Install necessary dependencies
-RUN apk add --no-cache bash
+# Copy data for add-on
+COPY run.sh /
+RUN chmod a+x /run.sh
 
-# Install required Python packages
-RUN pip install paho-mqtt pyserial
-
-# Copy application files
-WORKDIR /app
-COPY . /app
-
-# Set permissions for run.sh
-RUN chmod +x /app/run.sh
-
-# Set the entrypoint
-ENTRYPOINT ["/app/run.sh"]
+CMD [ "/run.sh" ]
